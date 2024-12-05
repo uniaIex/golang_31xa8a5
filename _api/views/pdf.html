@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pdf {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+        }
+    
+        .pdf,
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <object
+    class="pdf"
+	data="uploads/Alexandru_Baducu.pdf"
+	type="application/pdf"
+	width="100%"
+	height="100%"
+	title="Embedded PDF Viewer"
+>
+	<iframe
+		src="uploads/Alexandru_Baducu.pdf"
+		width="100%"
+		height="100%"
+		style="border: none"
+		title="Embedded PDF Viewer, iframe fallback"
+	>
+		<p>
+			Your browser does not support PDFs.
+			<a href="uploads/Alexandru_Baducu.pdf">Download the PDF</a>
+		</p>
+	</iframe>
+</object>
+</body>
+</html>

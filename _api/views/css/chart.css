@@ -1,0 +1,33 @@
+#my-chart {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+ 
+  #my-chart .legend {
+    border: black;
+  }
+
+  #my-chart  tr {
+    transition-duration: 0.3s;
+  }
+  #my-chart  tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  #my-chart  tr:hover th {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+  }
+
+
+  #my-chart td {
+    animation: jumping-bars 3s linear infinite;
+  }
+  #my-chart tr:nth-of-type(even) td {
+    animation-delay: 300ms;
+  }
+  @keyframes jumping-bars {
+    0% { transform: translateY(   0px ); }
+    2% { transform: translateY( -10px ); }
+    4% { transform: translateY(   0px ); }
+  }

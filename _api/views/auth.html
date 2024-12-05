@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style>
+        .center {
+        margin: 30px;
+        text-align: center;
+        padding: 10px;
+
+        .elem {
+            padding: 5px;
+            margin: 5px;
+        }
+}
+    </style>
+</head>
+<body>
+    <div class="center">
+  <form id="dynamic-form" onsubmit="submitFormData(event)">
+    
+     <input class="elem" type="text" name="username" placeholder="user"> <br>
+     <input class="elem" type="password" name="password" placeholder="password"> <br>
+    <button class="elem" type="submit">login</button> <br>
+  </form>
+</div>
+
+  <div class="center" id="result-container">
+
+  </div>
+  
+    <script>
+    async function submitFormData(event) {
+    // Prevent the default form submission which would reload the page
+    event.preventDefault();
+    
+    // Get form data
+    const form = event.target;
+    const formData = new FormData(form);
+    //var data = Object.fromEntries(formData.entries());
+  
+    const data = {
+      // Use Number() to convert to a number
+      // Alternatively, use parseFloat() or parseInt() depending on your needs
+      username: formData.get('username'),
+      password: formData.get('password'),
+      
+    };
+    
+    
+    try {
+      // Send data to server
+      const response = await fetch('/api/user/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+      
+      // Check if request was successful
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      if (response.status == 200)
+      {
+        location.href = '/admin';
+      }
+      
+      // Parse the response
+      const responseData = await response.json();
+      
+      // Update page content dynamically without refreshing
+      document.getElementById('result-container').textContent = 
+        `Received: ${JSON.stringify(responseData)}`;
+      
+    } catch (error) {
+      // Handle any errors
+      console.error('Error:', error);
+      document.getElementById('result-container').textContent = 
+        `Error occurred: ${error.message}`;
+    }
+  }
+  
+  // Example HTML structure this would work with
+  /*
+  */
+    </script>
+</body>
+</html>

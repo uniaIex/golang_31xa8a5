@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add technology</title>
+    <style>
+        .center {
+        margin: 30px;
+        text-align: center;
+        padding: 10px;
+        
+        }
+
+        .elem {
+            padding: 5px;
+            margin: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="center">
+        <form action="/api/technology/add" method="post" enctype="multipart/form-data">
+          
+           <input class="elem" type="text" name="name" placeholder="name"> <br>
+           <input class="elem" type="text" name="description" placeholder="description"> <br>
+
+           <input class="elem center position: absolute;" type="file" name="image"> <br>
+           
+           <input class="elem " type="submit" value="add technology"> <br>
+        </form>
+      </div>
+</body>
+</html>
+

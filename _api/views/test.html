@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/scrollbar.css">
+    <script src="js/interactive-requests.js">
+  </script>
+    <title>Document</title>
+</head>
+<body>
+    
+ <p id="dynamic-get"></p>
+
+
+ <form id="dynamic-form" onsubmit="submitFormData(event)">
+  <input type="text" name="name">
+  <input type="text" name="description">
+  <input type="text" name="github">
+  <input type="text" name="deployment">
+  <input type="number" name="technology">
+  <input type="text" name="platform">
+  <button type="submit">Send</button>
+</form>
+<div id="result-container"></div>
+<hr>
+<p id="live-data-display"></p>
+</body>
+</html>
+

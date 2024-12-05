@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Resume</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="img/favicon.png">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+  <!--cdncss link-->
+  
+  <link rel="stylesheet" href="https://unpkg.com/charts.css/dist/charts.min.css">
+  
+  <link rel="stylesheet" href="css/chart.css">
+
+  <!--style sheet-->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/scrollbar.css">
+
+
+</head>
+
+<body onload="getProjects(); getGraph()">
+  <svg>
+    <symbol id="github" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M10.07 20.503a1 1 0 0 0-1.18-.983c-1.31.24-2.963.276-3.402-.958a5.708 5.708 0 0 0-1.837-2.415a1.2 1.2 0 0 1-.167-.11a1 1 0 0 0-.93-.645h-.005a1 1 0 0 0-1 .995c-.004.815.81 1.338 1.141 1.514a4.44 4.44 0 0 1 .924 1.36c.365 1.023 1.423 2.576 4.466 2.376l.003.098l.004.268a1 1 0 0 0 2 0l-.005-.318c-.005-.19-.012-.464-.012-1.182M20.737 5.377a5.39 5.39 0 0 0 .09-.42a6.278 6.278 0 0 0-.408-3.293a1.002 1.002 0 0 0-.615-.58c-.356-.12-1.67-.357-4.184 1.25a13.87 13.87 0 0 0-6.354 0C6.762.75 5.455.966 5.102 1.079a.997.997 0 0 0-.631.584a6.3 6.3 0 0 0-.404 3.357c.025.127.051.246.079.354a6.27 6.27 0 0 0-1.256 3.83a8.422 8.422 0 0 0 .043.921c.334 4.603 3.334 5.984 5.424 6.459a4.591 4.591 0 0 0-.118.4a1 1 0 0 0 1.942.479a1.678 1.678 0 0 1 .468-.878a1 1 0 0 0-.546-1.745c-3.454-.395-4.954-1.802-5.18-4.899a6.61 6.61 0 0 1-.033-.738a4.258 4.258 0 0 1 .92-2.713a3.022 3.022 0 0 1 .195-.231a1 1 0 0 0 .188-1.025a3.388 3.388 0 0 1-.155-.555a4.094 4.094 0 0 1 .079-1.616a7.543 7.543 0 0 1 2.415 1.18a1.009 1.009 0 0 0 .827.133a11.777 11.777 0 0 1 6.173.001a1.005 1.005 0 0 0 .83-.138a7.572 7.572 0 0 1 2.406-1.19a4.04 4.04 0 0 1 .087 1.578a3.205 3.205 0 0 1-.169.607a1 1 0 0 0 .188 1.025c.078.087.155.18.224.268A4.122 4.122 0 0 1 20 9.203a7.039 7.039 0 0 1-.038.777c-.22 3.056-1.725 4.464-5.195 4.86a1 1 0 0 0-.546 1.746a1.63 1.63 0 0 1 .466.908a3.06 3.06 0 0 1 .093.82v2.333c-.01.648-.01 1.133-.01 1.356a1 1 0 1 0 2 0c0-.217 0-.692.01-1.34v-2.35a4.882 4.882 0 0 0-.155-1.311a4.256 4.256 0 0 0-.116-.416a6.513 6.513 0 0 0 5.445-6.424A8.697 8.697 0 0 0 22 9.203a6.13 6.13 0 0 0-1.263-3.826" />
+    </symbol>
+    <symbol id="menu" viewBox="0 0 24 24">
+      <path fill="black"
+        d="M4 6a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1m0 12a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1m7-7a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2z" />
+    </symbol>
+    
+  </svg>
+
+  <header id="top" class="position-sticky top-0 start-0" style="z-index:10;">
+    <nav class="navbar bg-white fixed-top">
+      <div class="container-fluid">
+        <div class="d-flex align-items-center g-4">
+          
+          <div class="icon px-5">
+            <a href="https://github.com/uniaIex" class="text-decoration-none">
+              <svg class="github" width="24" height="24">
+                <use xlink:href="#github"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+          <span class="navabar-toggler-icon">
+            <svg class="text-primary menu" width="32" height="32">
+              <use xlink:href="#menu"></use>
+            </svg>
+          </span>
+        </button>
+        <div class="offcanvas offcanvas-end text-white bg-black" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <button type="button" class="btn-close btn-close-white ms-3" data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav flex-grow-1 p-4">
+              <li class="nav-item">
+                <a class="nav-link active text-uppercase ls-4 text-white" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-uppercase ls-4 text-white" aria-current="page" href="/admin">Admin 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-uppercase ls-4 text-white" aria-current="page" href="/pdf">Curriculum Vitae 
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="banner rounded-4 p-5"
+        style="background-image: url(img/v6.gif); background-size: cover ; background-repeat: no-repeat; background-position: center;">
+        <div class="text-content text-white py-5 my-5">
+          <p class="fs-4">
+            It's a bug 
+            <br> 
+            No, it's a feature.
+          </p>
+          <h1 class="display-1">
+            Alex <br> Daniel
+          </h1>
+        </div>
+        <div class="row text-uppercase bg-black rounded-4 p-3 mt-5">
+          <div class="col-md-3">
+            <div class="d-flex align-items-center gap-4">
+              <h2 class="display-2 text-light">
+                4<sup class="fs-5">th</sup>
+              </h2>
+              
+              <p class="text-light-emphasis justify-content-center m-0 ls-4">
+                Semester of BSc <br> Software Engineering
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="d-flex align-items-center gap-4">
+              <h2 class="display-2 text-light">
+                FTC
+              </h2>
+              <p class="text-light-emphasis justify-content-center m-0 ls-4">
+                robotics Finalist
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="d-flex align-items-center gap-4">
+              <h2 class="display-2 text-light" id="responsive-projects-nr">
+                <div id="project-loading-data" class="spinner-grow text-light spinner-grow-sm visually-hidden" role="status"></div>
+              </h2>
+              <p class="text-light-emphasis justify-content-center m-0 ls-4">
+                Finished <br> projects
+              </p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-5 ">
+    <div class="row justify-content-center">
+      <div class="col-lg-6" data-aos="fade-up">
+        <div class="section-header text-center">
+          <h4 class="fw-bold fs-2 txt-fx slide-up">
+            Reliable, dedicated, and eager to further develop my skills, I aim to leverage my software development knowledge to make a meaningful contribution. Committed to supporting the team and stakeholders, I am prepared to take on any necessary tasks.
+          </h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="h-100 bg-yellow p-4 rounded-4 scrollbardev mb-3">
+            <h3>
+              Education
+            </h3>
+            <div class="py-4">
+              <p class="text-dark-emphasis">
+                2023 - 2026
+              </p>
+              <h5>
+                Syddansk Universitet, Bachelors of Science | Software Engineering
+              </h5>
+              
+            </div>
+            <p class="text-dark-emphasis">
+              2018 - 2022
+            </p>
+            <h5>
+              National College "Calistrat Hogas"
+            </h5>
+            <p class="text-dark-emphasis">
+              Curriculum focused on Computer Science
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 h-150">
+          <div class="h-100 bg-green p-4 rounded-4 scrollbardev mb-3">
+            <h3>
+              Work experience
+            </h3>
+            <div class="py-4">
+              <p class="text-dark-emphasis">
+                March 2023 - Ongoing
+              </p>
+              <h5>
+                EventForce Retail | Sønderborg, Denmark | Bilka
+              </h5>
+              <p class="text-dark-emphasis">
+                Shelf stocker.
+              </p>
+              
+            </div>
+            <p class="text-dark-emphasis">
+              May 2023 - August 2023
+            </p>
+            <h5>
+              CPS Contracting | London, United Kingdom
+            </h5>
+            <p class="text-dark-emphasis">
+              Data entry operator.
+            </p>
+            <div class="py-4">
+              <p class="text-dark-emphasis">
+                August 2022 - May 2023
+              </p>
+              <h5>
+                Whitbread Premier Inn | Watford, United Kingdom
+              </h5>
+              <p class="text-dark-emphasis">
+                Front of House.
+              </p>
+            </div>
+            <div class="py-4">
+              <p class="text-dark-emphasis">
+                January 2022 - June 2022
+              </p>
+              <h5>
+                Pizza cu Gust | Tecuci, Romania
+              </h5>
+              <p class="text-dark-emphasis">
+                Kitchen assistant.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="h-100 bg-teal p-4 rounded-4 scrollbardev mb-3">
+            <h3>
+              Interests
+            </h3>
+            <div class="py-4">
+              <h5>
+                Fitness Enthusiast
+              </h5>
+              <p class="text-dark-emphasis">
+                Dedicated to maintaining an active lifestyle through regular strength training and cardio.
+              </p>
+            </div>
+            <div class="py-4">
+              <h5>
+                IoT and Embedded Systems
+              </h5>
+              <p class="text-dark-emphasis">
+                Enjoy exploring the design and development of microcontroller-based systems and IoT devices.
+              </p>
+            </div>
+            <div>
+            <h5>
+              Nature Lover
+            </h5>
+            <p class="text-dark-emphasis">
+              Passionate about exploring natural landscapes and outdoor adventures.
+            </p>
+          </div>
+            <div class="py-4">
+              <h5>
+                Mycology Enthusiast
+              </h5>
+              <p class="text-dark-emphasis">
+                Passionate about studying fungi, from their biology to their impact on ecosystems and human life.
+              </p>
+            </div>
+
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="rounded-4 p-5"
+        style="background: rgb(202,167,196);
+background: linear-gradient(90deg, rgba(202,167,196,0.9501050420168067) 0%, rgba(255,255,255,1) 100%); background-size: cover ; background-repeat: no-repeat; background-position: center;">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="bg-black text-white p-4 rounded-4 conte">
+              <div id="my-chart">
+
+                <!--background-image: url(img/v6.gif);-->
+
+                <table class="charts-css bar show-heading multiple show-labels data-spacing-3" id="reactive-graph" style="--data-axes-color: rgb(225,225,225);">
+                  <caption style="color: rgb(255, 255, 255);" class="p-3"> </caption>
+
+                  <div id="graph-loading-data" class="spinner-grow text-light spinner-grow-sm visually-hidden" role="status"></div>
+                  
+
+                </table>
+              
+                <ul class="charts-css legend">
+                  proficiency in programming languages
+                </ul>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio py-5">
+    <div class="container">
+      <div class="justify-content-center">
+
+        <div class="row justify-content-center">
+
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="section-header text-center">
+              <h4 class="fw-bold fs-2 txt-fx slide-up">
+                Some of my most notable projects, and used technologies along my learning path.
+              </h4>
+              </div>
+            </div>
+
+            <div id="filters" class="button-group d-flex flex-wrap gap-3 justify-content-center py-5" data-aos="fade-up">
+                <button onclick="getProjects()" class="btn btn-outline-dark" id="button-responsive-projects"> Projects </button>
+                <button onclick="getTechnologies()" class="btn btn-outline-dark" id="button-responsive-technologies"> Technologies </button>
+            </div>  
+          </div>
+
+          <!--style="background-image: url(img/g7.gif); background-size: cover ; background-repeat: no-repeat; background-position: center; min-height: 40rem;">-->
+            <div class="banner rounded-4 p-5 scrollbardev"
+            style="background: rgb(255,255,255);
+background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(202,167,196,0.9501050420168067) 100%); background-size: cover ; background-repeat: no-repeat; background-position: center; min-height: 40rem;">
+
+            <div id="project-loading-data" class="spinner-grow text-dark-emphasis spinner-grow-sm visually-hidden" role="status">
+              <!-- spinner for api loading-->
+            </div>
+          <div id="projects-view" class="grid p-0 clearfix row  justify-content-center my-auto" data-aos="fade-up">
+          
+          </div>    
+        </div>  
+      </div>
+      </div>
+  </section>
+  </div>
+</section>
+
+
+  
+  <footer id="footer" class="bg-black text-white py-5">
+    <div class="container-sm">
+      <div class="row g-md-5 my-5">
+        <div class="col-md-5">
+          <p>
+            Just feel free to contact if you wanna collaborate with me, or simply have a conversation.
+          </p>
+          <h6>
+            <a href="mailto:baducualexandrudaniel@gmail.com" class="text-decoration-none" style="color: purple;">baducualexandrudaniel@gmail.com</a>
+          </h6>
+        </div>
+        <div class="col-md-5">
+          <p>
+            Don't hesitate to check some of my repositories as well.
+          </p>
+          <h6>
+            <a href="https://github.com/uniaIex" class="text-decoration-none" style="color: purple;">github</a>
+          </h6>
+        </div>
+      </div>
+      
+    </div>
+  </footer>
+
+
+  <!-- Bootstrap JavaScript Libraries -->
+
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+
+  <script src="js/index.js"></script>
+</body>
+
+</html>
