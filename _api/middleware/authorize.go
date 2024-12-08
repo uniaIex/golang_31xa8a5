@@ -106,7 +106,9 @@ func Auth(redir string) gin.HandlerFunc {
 		}
 
 		// attach to req
-		c.Set("user", user)
+		c.Set("userId", user.ID)
+		c.Set("userUsername", user.Username)
+		c.Set("userRole", user.Role)
 
 		//continue
 		c.Next()

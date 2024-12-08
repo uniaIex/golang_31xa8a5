@@ -33,6 +33,20 @@
                     console.error('Failed to fetch live data:', error);
                 }
         }
+
+        async function fetchLiveDataFiles() {
+            try {
+                const response = await fetch('/api/file');
+                const data = await response.json();
+      
+                // Update specific parts of the page
+                document.getElementById('live-data-display-file').innerHTML = `
+                Current value: ${JSON.stringify(data)}
+                `;
+                } catch (error) {
+                    console.error('Failed to fetch live data:', error);
+                }
+        }
         
         async function fetchLiveDataTechnologies() {
             try {
@@ -65,6 +79,7 @@
         setInterval(fetchLiveDataProjects, 3000);
         setInterval(fetchLiveDataTechnologies, 3000);
         setInterval(fetchLiveDataLanguages, 3000);
+        setInterval(fetchLiveDataFiles, 3000);
 
         async function submitFormData(event) {
     // Prevent the default form submission which would reload the page
@@ -123,6 +138,7 @@
     <a href="/admin/project/add"><button class="elem">add project</button></a> <br>
     <a href="/admin/technology/add"><button class="elem">add technology</button></a> <br>
     <a href="/admin/language/add"><button class="elem">add language</button></a> <br>
+    <a href="/admin/file/add"><button class="elem">add file</button></a> <br>
     <div>
         <p class="elem">projects: </p>
         <p id="live-data-display-project"></p>
@@ -137,6 +153,12 @@
         <p class="elem">languages: </p>
         <p id="live-data-display-language"></p>
     </div>
+
+    <div>
+      <p class="elem">Files: </p>
+      <p id="live-data-display-file"></p>
+  </div>
+
 
 
 </body>

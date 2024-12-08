@@ -7,6 +7,7 @@ import (
 	"app/environment"
 	"app/middleware"
 	"html/template"
+	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -47,6 +48,14 @@ func setupRouter() *gin.Engine {
 		projects.DELETE("/delete/:id", middleware.Auth(""), controllers.ProjectDelete)
 	}
 
+	file := api.Group("/file")
+	{
+		file.GET("", middleware.Auth(""), controllers.FileIndex)
+		file.POST("/add", middleware.Auth(""), controllers.FileAdd)
+		file.PUT("/update/:id", middleware.Auth(""), controllers.FileUpdate)
+		file.DELETE("/delete/:id", middleware.Auth(""), controllers.FileDelete)
+	}
+
 	users := api.Group("/user")
 	{
 		users.POST("/login", controllers.Login)
@@ -59,6 +68,25 @@ func setupRouter() *gin.Engine {
 		renderer.GET("/", func(c *gin.Context) {
 			t := template.Must(template.ParseFiles("views/index.html"))
 			t.Execute(c.Writer, nil)
+
+		})
+
+		renderer.GET("/user", middleware.Auth(""), func(c *gin.Context) {
+			reqId, _ := c.Get("userId")
+			reqUsername, _ := c.Get("userUsername")
+			reqRole, _ := c.Get("userRole")
+
+			if reqId != nil && reqUsername != nil && reqRole != nil {
+				c.JSON(http.StatusOK, gin.H{
+					"id":       reqId,
+					"username": reqUsername,
+					"role":     reqRole,
+				})
+			}
+
+			c.JSON(http.StatusOK, gin.H{
+				"data": "nope",
+			})
 
 		})
 
@@ -82,6 +110,12 @@ func setupRouter() *gin.Engine {
 
 		renderer.GET("/admin/project/add", middleware.Auth("/auth"), func(c *gin.Context) {
 			t := template.Must(template.ParseFiles("views/addproject.html"))
+			t.Execute(c.Writer, nil)
+
+		})
+
+		renderer.GET("/admin/file/add", middleware.Auth("/auth"), func(c *gin.Context) {
+			t := template.Must(template.ParseFiles("views/addfile.html"))
 			t.Execute(c.Writer, nil)
 
 		})

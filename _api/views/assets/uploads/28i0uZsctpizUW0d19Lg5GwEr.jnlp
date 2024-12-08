@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="1.0+" codebase="https://login.exammonitor.dk/" href="exam.jnlp">
+        <information>
+                <title>Exam Monitor</title>
+                <vendor>Syddansk Universitet</vendor>
+                <homepage href="https://login.exammonitor.dk/"/>
+                <description>Exam Monitor</description>
+                <description kind="short">Exam Monitor</description>
+                <description kind="tooltip">Exam Monitor</description>
+                <icon href="exam.png"/>
+        </information>
+        <security>
+                <all-permissions/>
+        </security>
+        <update check="always" policy="always"/>
+        <resources>
+                <j2se version="1.6+" initial-heap-size="64m" max-heap-size="512m"/>
+                <jar href="exam.jar" main="true" download="eager"/>
+                <property name="http.agent" value="EM/"/>
+                <property name="apple.eawt.quitStrategy" value="CLOSE_ALL_WINDOWS"/>
+        </resources>
+        <application-desc main-class="dk.sdu.exammonitor.Exammonitorlauncher">
+                <argument>SDU</argument>
+        </application-desc>
+</jnlp>
